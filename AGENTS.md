@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is a Markdown-based personal agenda, not a software application. Keep task files in `Pendentes/` until completed, then move them to `Concluídos/` without renaming. Store one project description per file in `Projetos/<projeto>.md`. Use `AI/` for human-facing documentation about the agenda workflow.
+This repository is a Markdown-based personal agenda, not a software application. Keep task files in `Pendentes/` until completed, then move them to `Concluídos/` without renaming. Store one project description per file in `Projetos/<projeto>.md`. Project files may also define a default priority band for related tasks. Use `AI/` for human-facing documentation about the agenda workflow.
 
 Codex skills live in `.agents/skills/`. Each skill has a `SKILL.md` and optional `agents/openai.yaml`. Current responsibilities are separated into `criar-tarefa`, `buscar-tarefas`, `agendar-notificacoes`, and `gerenciar-tarefas`; preserve those boundaries when editing them.
 
@@ -24,7 +24,7 @@ Allowed priorities are `não definida`, `baixa`, `média`, `alta`, and `urgente`
 There is no build, test, linter, or runtime service. Validate every changed skill before handoff:
 
 ```powershell
-python -X utf8 C:\Users\PC\.codex\skills\.system\skill-creator\scripts\quick_validate.py .agents\skills\<skill-name>
+python -X utf8 <path-to-quick_validate.py> .agents\skills\<skill-name>
 ```
 
 Use `git status --short` to confirm the intended files. Do not add generated caches, local credentials, or unrelated files.

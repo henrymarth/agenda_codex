@@ -1,0 +1,9 @@
+# Ignora o conteúdo sensível das tarefas
+Pendentes/**
+Concluídos/**
+Projetos/**
+
+# Mantém os placeholders das pastas
+!Pendentes/.gitkeep
+!Concluídos/.gitkeep
+!Projetos/.gitkeep
