@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gerenciar tarefas"
+  short_description: "Atualiza prioridade, status e conclusão de tarefas"
+  default_prompt: "Use $gerenciar-tarefas para atualizar uma tarefa da agenda."

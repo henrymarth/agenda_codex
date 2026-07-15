@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agendar notificações"
+  short_description: "Cria lembretes e revisões diárias da agenda"
+  default_prompt: "Use $agendar-notificacoes para criar um lembrete da agenda."

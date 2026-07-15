@@ -1,0 +1,4 @@
+interface:
+  display_name: "Criar tarefa"
+  short_description: "Registra tarefas da agenda em Markdown"
+  default_prompt: "Use $criar-tarefa para registrar uma tarefa na agenda."

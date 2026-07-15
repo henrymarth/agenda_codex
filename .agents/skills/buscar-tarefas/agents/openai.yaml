@@ -1,0 +1,4 @@
+interface:
+  display_name: "Buscar tarefas"
+  short_description: "Consulta pendências em camadas e sem alterar arquivos"
+  default_prompt: "Use $buscar-tarefas para encontrar e listar tarefas da agenda."
