@@ -21,6 +21,8 @@ Trate a data mencionada como prazo. Converta-a para `dd-mm-aaaa`, usando a data 
 
 Use o nome do projeto apenas se ele for explicitamente informado ou inequivocamente reconhecível no pedido. Se a solicitação não permitir determinar o título da tarefa, peça esclarecimento antes de criar o arquivo.
 
+Se o projeto tiver uma política de prioridade documentada em `Projetos/<projeto>.md`, siga essa política ao preencher `prioridade`. Na ausência de política específica, mantenha `prioridade: não definida`.
+
 ## Criar o arquivo
 
 1. Converta título e projeto para minúsculas, sem acentos e com palavras separadas por `_`.
@@ -42,7 +44,7 @@ Use o nome do projeto apenas se ele for explicitamente informado ou inequivocame
    prazo: [dd-mm-aaaa ou SD]
    horario: [HH:mm ou SD]
    criada_em: [dd-mm-aaaa]
-   prioridade: não definida
+   prioridade: [prioridade definida pelo projeto ou não definida]
    status: pendente
    ---
 
@@ -52,8 +54,10 @@ Use o nome do projeto apenas se ele for explicitamente informado ou inequivocame
    ```
 
 5. Preserve a descrição em linguagem natural, sem inventar detalhes. Se não houver contexto adicional, deixe uma linha vazia após o título.
-6. Se `prazo` não for `SD`, crie lembretes individuais às 09:00 no dia anterior e às 09:00 no dia do prazo, usando a automação do Codex. Inclua o nome exato do arquivo em cada nome e prompt de automação. Se o usuário tiver solicitado horários ou intervalos específicos de lembrete, crie os solicitados e não substitua por lembretes-padrão duplicados.
-7. Ao concluir, informe o nome do arquivo criado, o prazo interpretado e os lembretes agendados.
+6. Se `prazo` não for `SD`, crie lembretes individuais às 09:00 no dia anterior e às 09:00 no dia do prazo, usando a automação do Codex. Inclua o nome exato do arquivo em cada nome e prompt de automação.
+7. Quando o usuário pedir lembretes recorrentes ou lembranças que devem continuar até a tarefa ser concluída, crie automações vinculadas usando a chave canônica da tarefa: `VINCULO-TAREFA: Pendentes/<nome_exato_do_arquivo>.md`. Repita essa chave no nome e no prompt de cada automação vinculada.
+8. Se o usuário tiver solicitado horários ou intervalos específicos de lembrete, crie os solicitados e não substitua por lembretes-padrão duplicados.
+9. Ao concluir, informe o nome do arquivo criado, o prazo interpretado e os lembretes agendados.
 
 ## Exemplos
 

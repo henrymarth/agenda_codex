@@ -7,6 +7,16 @@ description: Cria, altera e cancela lembretes e revisões da agenda Megamaxi. Us
 
 Use a automação do Codex para criar, atualizar ou remover lembretes. Não crie, altere ou conclua tarefas, exceto registrar `horario` quando um lembrete estiver explicitamente vinculado a uma tarefa existente.
 
+## Contrato de vínculo
+
+Quando um lembrete pertencer a uma tarefa, use sempre a chave canônica da tarefa como identificador estável:
+
+```text
+VINCULO-TAREFA: Pendentes/<nome_exato_do_arquivo>.md
+```
+
+Repita essa chave no nome e no prompt da automação. Nunca invente um nome de arquivo; derive-o do arquivo real da tarefa localizada.
+
 ## Interpretar o pedido
 
 Extraia o assunto, data, hora, fuso horário e todos os momentos de lembrete solicitados. Use o fuso horário do usuário. Converta datas relativas para data e hora absolutas antes de agendar.
@@ -29,13 +39,15 @@ Antes de criar, procure uma automação existente com esse nome; atualize-a em v
 
 Crie uma automação única para cada data e hora de lembrete. Dê um nome descritivo que inclua o assunto e o horário. O prompt da automação deve informar o lembrete de forma direta e curta.
 
+Para lembretes de disparo único, use recorrência com `COUNT=1`. Para lembretes recorrentes vinculados a uma tarefa, não use `COUNT`; mantenha a automação ativa até a tarefa ser concluída ou cancelada.
+
 Um lembrete avulso, sem tarefa explicitamente indicada, cria somente a notificação. Não crie um arquivo em `Pendentes/` por conta própria.
 
-Quando o usuário referir uma tarefa existente, localize-a pelo nome e/ou projeto. Inclua o nome exato do arquivo da tarefa no nome e no prompt de cada automação vinculada. Se o compromisso possuir hora, registre ou atualize `horario: HH:mm` no cabeçalho da tarefa. Não modifique seu prazo, descrição, prioridade ou status.
+Quando o usuário referir uma tarefa existente, localize-a pelo nome e/ou projeto. Inclua o nome exato do arquivo da tarefa no nome e no prompt de cada automação vinculada e adicione a chave `VINCULO-TAREFA: Pendentes/<nome_exato_do_arquivo>.md`. Se o compromisso possuir hora, registre ou atualize `horario: HH:mm` no cabeçalho da tarefa. Não modifique seu prazo, descrição, prioridade ou status.
 
 ### Alterar e cancelar
 
-Ao reagendar ou cancelar, identifique a automação pelo assunto e pelo horário. Atualize ou remova a automação correspondente; nunca crie outra como substituta sem remover a anterior.
+Ao reagendar ou cancelar, identifique a automação pelo assunto, pelo horário e, quando houver, pela chave `VINCULO-TAREFA`. Atualize ou remova a automação correspondente; nunca crie outra como substituta sem remover a anterior.
 
 ## Execução
 

@@ -24,10 +24,10 @@ Localize a tarefa pelo nome, projeto e, se necessário, pelos metadados. Quando 
 
 ## Lembretes vinculados
 
-Ao concluir ou cancelar uma tarefa, procure automações cujo nome ou prompt contenha o nome exato do arquivo da tarefa. Cancele somente as automações correspondentes. Não cancele a automação `Revisão diária da agenda`.
+Ao concluir ou cancelar uma tarefa, procure automações cujo nome ou prompt contenha a chave exata `VINCULO-TAREFA: Pendentes/<nome_exato_do_arquivo>.md`. Cancele somente as automações correspondentes. Não cancele a automação `Revisão diária da agenda`.
 
 Ao reabrir ou reativar, não recrie lembretes automaticamente; o usuário pode pedir novos lembretes com `$agendar-notificacoes`.
 
 ## Confirmação
 
-Informe a tarefa modificada, os valores anteriores e novos, a pasta final e a quantidade de lembretes cancelados. Se não houver lembretes vinculados, diga isso.
+Informe a tarefa modificada, os valores anteriores e novos, a pasta final e a quantidade de lembretes cancelados. Se não houver lembretes vinculados, diga isso. Se houver lembretes permanentes vinculados, cancele-os ao concluir ou cancelar a tarefa.
